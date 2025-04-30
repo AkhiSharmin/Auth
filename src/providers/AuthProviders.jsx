@@ -1,12 +1,12 @@
 import React, { createContext } from "react";
 
-const AuthContext = createContext(null);
-
-const authInfo = {
-  name: "Mati te ami jabo mise",
-};
+export const AuthContext = createContext(null);
 
 const AuthProviders = ({ children }) => {
+  const authInfo = {
+    name: "Hey my man",
+  };
+
   return (
     <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>
   );
@@ -21,4 +21,5 @@ export default AuthProviders;
  * 4.[attention please]
  * 5.use the auth provider in the main.jsx
  * 6.access the children inside the authProvider in the main.jsx
+ * 7. export AuthContext
  */
