@@ -4,9 +4,10 @@ import { Link } from "react-router-dom";
 const Register = () => {
   const handleRegister = (e) => {
     e.preventDefault();
+    const name = e.target.name.value;
     const email = e.target.email.value;
     const password = e.target.password.value;
-    console.log(email, password);
+    console.log(name, email, password);
   };
 
   return (
@@ -18,6 +19,17 @@ const Register = () => {
         <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
           <form onSubmit={handleRegister} className="card-body">
             <div className="form-control">
+              <label className="label-text">Name</label>
+              <input
+                type="text"
+                name="name"
+                className="input input-bordered"
+                placeholder="Name"
+                required
+              />
+            </div>
+
+            <div className="form-control my-3">
               <label className="label-text">Email</label>
               <input
                 type="email"
@@ -27,6 +39,7 @@ const Register = () => {
                 required
               />
             </div>
+
             <div className="form-control">
               <label className="label-text">Password</label>
               <input
@@ -37,10 +50,8 @@ const Register = () => {
                 required
               />
             </div>
-            <div>
-              <a className="link link-hover">Forgot password?</a>
-            </div>
-            <button className="btn btn-neutral mt-4">Login</button>
+
+            <button className="btn btn-neutral mt-4">Register</button>
           </form>
           <p className="ml-4 mb-4 text-green-500 p-4">
             Already have an account? Please{" "}

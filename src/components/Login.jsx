@@ -27,7 +27,7 @@ const Login = () => {
                 required
               />
             </div>
-            <div className="form-control">
+            <div className="form-control my-3">
               <label className="label-text">Password</label>
               <input
                 type="password"
