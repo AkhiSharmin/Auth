@@ -1,9 +1,9 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
-import AuthProviders from "../providers/AuthProviders";
+import { AuthContext } from "../providers/AuthProviders";
 
 const Login = () => {
-  const { singInUser } = useContext(AuthProviders);
+  const { singInUser } = useContext(AuthContext);
 
   const handleLogin = (e) => {
     e.preventDefault();
