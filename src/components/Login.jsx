@@ -73,8 +73,9 @@ const Login = () => {
               Register
             </Link>
           </p>
-          <p>
-            <button onClick={handleGoogleSingIn} className="btn btn-guest">
+          <div className="divider"></div>
+          <p className="text-center pb-3">
+            <button onClick={handleGoogleSingIn} className="btn btn-neutral">
               Google
             </button>
           </p>
