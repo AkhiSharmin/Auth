@@ -3,7 +3,12 @@ import { AuthContext } from "../../providers/AuthProviders";
 import { Navigate } from "react-router-dom";
 
 const PrivateRouts = ({ children }) => {
-  const { user } = useContext(AuthContext);
+  const { user, loading } = useContext(AuthContext);
+
+  if (loading) {
+    return <span className="loading loading-infinity loading-xl"></span>;
+  }
+
   if (user) {
     return children;
   }

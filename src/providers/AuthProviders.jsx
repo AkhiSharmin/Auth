@@ -10,19 +10,23 @@ import { auth } from "../firebase.init";
 export const AuthContext = createContext(null);
 
 const AuthProviders = ({ children }) => {
+  const [loading, setLoading] = useState(true);
   const [user, setUser] = useState(null);
 
   const name = "Hlw my Man";
 
   const createUser = (email, password) => {
+    setLoading(true);
     return createUserWithEmailAndPassword(auth, email, password);
   };
 
   const singInUser = (email, password) => {
+    setLoading(true);
     return signInWithEmailAndPassword(auth, email, password);
   };
 
   const singOutUser = () => {
+    setLoading(true);
     return signOut(auth);
   };
 
@@ -30,6 +34,7 @@ const AuthProviders = ({ children }) => {
     const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
       console.log("current user", currentUser);
       setUser(currentUser);
+      setLoading(false);
     });
 
     return () => {
@@ -50,6 +55,7 @@ const AuthProviders = ({ children }) => {
   const authInfo = {
     name,
     user,
+    loading,
     createUser,
     singInUser,
     singOutUser,
