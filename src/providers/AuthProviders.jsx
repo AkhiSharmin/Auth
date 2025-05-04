@@ -1,4 +1,5 @@
 import {
+  signOut,
   createUserWithEmailAndPassword,
   onAuthStateChanged,
   signInWithEmailAndPassword,
@@ -19,6 +20,10 @@ const AuthProviders = ({ children }) => {
 
   const singInUser = (email, password) => {
     return signInWithEmailAndPassword(auth, email, password);
+  };
+
+  const singOutUser = () => {
+    return signOut(auth);
   };
 
   useEffect(() => {
@@ -47,6 +52,7 @@ const AuthProviders = ({ children }) => {
     user,
     createUser,
     singInUser,
+    singOutUser,
   };
 
   return (
